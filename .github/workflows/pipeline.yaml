@@ -1,9 +1,11 @@
 name: Build and Release mkdfile
 
 on:
-  push:
-    tags:
-      - 'v*'  # Só roda em tags tipo v0.1.0
+    push:
+        branches:
+            - main
+        tags:
+            - 'v*'  # Só roda em tags tipo v0.1.0
 
 jobs:
   build:
