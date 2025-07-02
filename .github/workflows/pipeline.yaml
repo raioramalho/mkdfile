@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: raiosystems
 
     steps:
       - name: Checkout código
@@ -35,4 +36,4 @@ jobs:
         with:
           files: mkdfile-macos.tar.gz
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH }}
