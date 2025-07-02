@@ -1,8 +1,13 @@
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
+from typing import Optional
 
 
-def generate(multistage: bool = False, tag: str = "18", variant: str | None = None) -> str:
+def generate(
+    multistage: bool = False,
+    tag: str = "18",
+    variant: Optional[str] = None,
+) -> str:
     """Gera o conteúdo do Dockerfile para projetos Node.js."""
 
     env = Environment(
