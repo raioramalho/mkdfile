@@ -32,9 +32,13 @@ jobs:
           cp dist/mkdfile dist-out/
           tar -czvf mkdfile-macos.tar.gz -C dist-out mkdfile
 
+      - name: Gerar SHA256
+        run: sha256sum mkdfile-macos.tar.gz
+
       - name: Criar Release
         uses: softprops/action-gh-release@v2
         with:
           files: mkdfile-macos.tar.gz
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
