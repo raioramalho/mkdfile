@@ -36,4 +36,4 @@ jobs:
         with:
           files: mkdfile-macos.tar.gz
         env:
-          GH_TOKEN: ${{ secrets.GH }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
