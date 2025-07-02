@@ -24,28 +24,30 @@ pip install -r requirements.txt
 
 ## 📦 Como usar
 
+Cada imagem possui um subcomando específico. Execute `python cli.py --help` para ver todas as opções.
+
+### Node.js
+
 ```bash
-python cli.py --image <node|python|nginx|go> [--multistage] [--output Dockerfile]
+python cli.py node [--tag 18] [--variant alpine] [--multistage] [--output Dockerfile]
 ```
 
-### Exemplos:
-
-Gerar um Dockerfile simples para Node.js:
+### Python
 
 ```bash
-python cli.py --image node --output Dockerfile
+python cli.py python [--multistage] [--output Dockerfile]
 ```
 
-Gerar com multistage:
+### Nginx
 
 ```bash
-python cli.py --image python --multistage --output Dockerfile
+python cli.py nginx [--multistage] [--output Dockerfile]
 ```
 
-Gerar para nginx:
+### Go
 
 ```bash
-python cli.py --image nginx
+python cli.py go [--multistage] [--output Dockerfile]
 ```
 
 ## 📁 Estrutura
@@ -62,3 +64,7 @@ python cli.py --image nginx
 ## 📄 Licença
 
 MIT © Alan Ramalho
+
+## 🙏 Créditos
+
+Projeto mantido por [Alan Ramalho](https://github.com/raioramalho) <ramalho.sit@gmail.com>.
