@@ -2,7 +2,7 @@ class Mkdfile < Formula
   desc "Gerador de Dockerfile com suporte a multistage"
   homepage "https://github.com/raioramalho/mkdfile"
   url "https://github.com/raioramalho/mkdfile/releases/download/v0.1.0/mkdfile-macos.tar.gz"
-  sha256 "a92d648149fc494f78db01490542ae695e64bbf07e5051a470379469c26d2ea7"
+  sha256 "0e849c52b7867998479ca04d4856b05d7865ffa00aa27b4977a8bba7b29da5a9"
   license "MIT"
 
   def install
