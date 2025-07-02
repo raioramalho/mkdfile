@@ -1,11 +1,9 @@
 name: Build and Release mkdfile
 
 on:
-    push:
-        branches:
-            - main
-        tags:
-            - 'v*'  # Só roda em tags tipo v0.1.0
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -18,23 +16,21 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Instalar dependências
         run: |
-          pip install pyinstaller
           pip install -r requirements.txt
+          pip install pyinstaller
 
       - name: Build com PyInstaller
-        run: pyinstaller --onefile cli.py -n mkdfile
-
-      - name: Criar tar.gz
         run: |
+          pyinstaller --onefile cli.py -n mkdfile
           mkdir dist-out
           cp dist/mkdfile dist-out/
           tar -czvf mkdfile-macos.tar.gz -C dist-out mkdfile
 
-      - name: Publicar Release
+      - name: Criar Release
         uses: softprops/action-gh-release@v2
         with:
           files: mkdfile-macos.tar.gz
