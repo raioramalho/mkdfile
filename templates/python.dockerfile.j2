@@ -1,0 +1,17 @@
+{% if multistage %}
+FROM python:3.11-slim AS builder
+WORKDIR /app
+COPY . .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+FROM python:3.11-slim
+WORKDIR /app
+COPY --from=builder /app .
+CMD ["python", "app.py"]
+{% else %}
+FROM python:3.11-slim
+WORKDIR /app
+COPY . .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+CMD ["python", "app.py"]
+{% endif %}
