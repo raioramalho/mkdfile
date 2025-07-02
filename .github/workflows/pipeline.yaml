@@ -27,6 +27,7 @@ jobs:
       - name: Build com PyInstaller
         run: |
           pyinstaller --onefile cli.py -n mkdfile
+          chmod +x dist/mkdfile 
           mkdir dist-out
           cp dist/mkdfile dist-out/
           tar -czvf mkdfile-macos.tar.gz -C dist-out mkdfile
