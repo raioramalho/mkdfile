@@ -1,15 +1,15 @@
 {% if multistage %}
-FROM python:3.11-slim AS builder
+FROM {{ builder_image }} AS builder
 WORKDIR /app
 COPY . .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-FROM python:3.11-slim
+FROM {{ runtime_image }}
 WORKDIR /app
 COPY --from=builder /app .
 CMD ["python", "app.py"]
 {% else %}
-FROM python:3.11-slim
+FROM {{ runtime_image }}
 WORKDIR /app
 COPY . .
 RUN pip install --upgrade pip && pip install -r requirements.txt

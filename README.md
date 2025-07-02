@@ -22,6 +22,15 @@ Instale as dependências com:
 pip install -r requirements.txt
 ```
 
+## 🍺 Instalação via Homebrew
+
+Também é possível instalar utilizando o Homebrew. Primeiro adicione o repositório e depois instale:
+
+```bash
+brew tap raioramalho/mkdfile https://github.com/raioramalho/mkdfile
+brew install mkdfile
+```
+
 ## 📦 Como usar
 
 Cada imagem possui um subcomando específico. Execute `python cli.py --help` para ver todas as opções.
@@ -35,19 +44,25 @@ python cli.py node [--tag 18] [--variant alpine] [--multistage] [--output Docker
 ### Python
 
 ```bash
-python cli.py python [--multistage] [--output Dockerfile]
+python cli.py python [--tag 3.11] [--variant slim] [--multistage] [--output Dockerfile]
 ```
 
 ### Nginx
 
 ```bash
-python cli.py nginx [--multistage] [--output Dockerfile]
+python cli.py nginx [--tag 1.25] [--variant alpine] [--output Dockerfile]
 ```
 
 ### Go
 
 ```bash
-python cli.py go [--multistage] [--output Dockerfile]
+python cli.py go [--tag 1.20] [--variant alpine] [--multistage] [--output Dockerfile]
+```
+
+### Versões disponíveis
+
+```bash
+python cli.py versions
 ```
 
 ## 📁 Estrutura
