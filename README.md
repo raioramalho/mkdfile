@@ -44,19 +44,25 @@ python cli.py node [--tag 18] [--variant alpine] [--multistage] [--output Docker
 ### Python
 
 ```bash
-python cli.py python [--multistage] [--output Dockerfile]
+python cli.py python [--tag 3.11] [--variant slim] [--multistage] [--output Dockerfile]
 ```
 
 ### Nginx
 
 ```bash
-python cli.py nginx [--multistage] [--output Dockerfile]
+python cli.py nginx [--tag 1.25] [--variant alpine] [--output Dockerfile]
 ```
 
 ### Go
 
 ```bash
-python cli.py go [--multistage] [--output Dockerfile]
+python cli.py go [--tag 1.20] [--variant alpine] [--multistage] [--output Dockerfile]
+```
+
+### Versões disponíveis
+
+```bash
+python cli.py versions
 ```
 
 ## 📁 Estrutura
