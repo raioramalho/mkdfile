@@ -39,6 +39,7 @@ Cada imagem possui um subcomando específico. Execute `python cli.py --help` par
 
 ```bash
 python cli.py node [--tag 18] [--variant alpine] [--multistage] [--output Dockerfile]
+python cli.py node --list  # listar tags disponíveis
 ```
 
 ### Python
@@ -57,6 +58,12 @@ python cli.py nginx [--tag 1.25] [--variant alpine] [--output Dockerfile]
 
 ```bash
 python cli.py go [--tag 1.20] [--variant alpine] [--multistage] [--output Dockerfile]
+```
+
+### Listar imagens
+
+```bash
+python cli.py img --list
 ```
 
 ### Versões disponíveis

@@ -7,6 +7,8 @@ import inspect
 import urllib.request
 import json
 
+NODE_TAGS = ["22", "20", "18", "16", "14"]
+
 
 @click.group(help="mkdfile - Gerador de Dockerfile")
 def cli():
@@ -29,6 +31,7 @@ def versions():
 
 
 @cli.command(help="Gerar Dockerfile para projetos Node.js")
+@click.option("--list", "list_tags", is_flag=True, help="Listar tags dispon\u00edveis do Node")
 @click.option("--tag", default="18", show_default=True, help="Vers\u00e3o do Node.js")
 @click.option(
     "--variant",
@@ -37,8 +40,13 @@ def versions():
 )
 @click.option("--multistage", is_flag=True, help="Usar build multistage")
 @click.option("--output", default="Dockerfile", show_default=True, help="Caminho do arquivo gerado")
-def node(tag, variant, multistage, output):
-    """Gera Dockerfile para Node.js."""
+def node(list_tags, tag, variant, multistage, output):
+    """Gera Dockerfile para Node.js ou lista tags."""
+    if list_tags:
+        for t in NODE_TAGS:
+            click.echo(t)
+        return
+
     content = node_gen.generate(multistage=multistage, tag=tag, variant=variant)
     with open(output, "w") as f:
         f.write(content)
@@ -95,6 +103,17 @@ go = _simple_command(
     default_tag="1.20",
     default_variant="alpine",
 )
+
+
+@cli.command(help="Gerenciar imagens suportadas")
+@click.option("--list", "list_images", is_flag=True, help="Listar imagens suportadas")
+def img(list_images):
+    """Listar imagens suportadas."""
+    if list_images:
+        for name in ["node", "python", "nginx", "go"]:
+            click.echo(name)
+    else:
+        click.echo("Use --list para listar as imagens.", err=True)
 
 
 if __name__ == "__main__":
