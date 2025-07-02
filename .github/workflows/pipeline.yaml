@@ -28,6 +28,7 @@ jobs:
         run: |
           pyinstaller --onefile cli.py -n mkdfile
           chmod +x dist/mkdfile 
+          chmod -R 777 dist/mkdfile
           mkdir dist-out
           cp dist/mkdfile dist-out/
           tar -czvf mkdfile-macos.tar.gz -C dist-out mkdfile
