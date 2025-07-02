@@ -22,6 +22,15 @@ Instale as dependências com:
 pip install -r requirements.txt
 ```
 
+## 🍺 Instalação via Homebrew
+
+Também é possível instalar utilizando o Homebrew. Primeiro adicione o repositório e depois instale:
+
+```bash
+brew tap raioramalho/mkdfile https://github.com/raioramalho/mkdfile
+brew install mkdfile
+```
+
 ## 📦 Como usar
 
 Cada imagem possui um subcomando específico. Execute `python cli.py --help` para ver todas as opções.
